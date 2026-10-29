@@ -1,0 +1,120 @@
+:root { --wine: #98234e; --wine-dark: #741938; --ink: #292929; --muted: #777; --line: #dedede; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+
+.public-site { min-height: 100vh; background: #fff; }
+.site-header { background: #fff; }
+.site-logo { display: flex; align-items: center; justify-content: center; min-height: 94px; }
+.site-logo img { width: 209px; height: 60px; object-fit: contain; }
+.site-nav { display: flex; justify-content: center; min-height: 47px; border-top: 1px solid var(--wine); border-bottom: 3px solid var(--wine); }
+.site-nav a, .site-nav button { display: flex; align-items: center; justify-content: center; min-width: 150px; padding: 9px 20px; background: none; border: 0; color: #4d4d4d; font-size: 15px; }
+.site-nav a:hover, .site-nav button:hover { color: var(--wine); background: #faf6f8; }
+
+.hero-carousel { background: #050505; }
+.hero-viewport { position: relative; height: clamp(220px, 30.5vw, 480px); overflow: hidden; }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; pointer-events: none; }
+.hero-slide.active { opacity: 1; }
+.hero-slide img { object-fit: cover; object-position: center; }
+.hero-arrow { position: absolute; z-index: 2; top: 50%; transform: translateY(-50%); width: 42px; height: 58px; background: #0005; border: 0; color: white; font-size: 38px; line-height: 1; font-weight: 200; }
+.hero-arrow:hover { background: #0009; }
+.hero-prev { left: 0; }
+.hero-next { right: 0; }
+.hero-dots { position: absolute; z-index: 2; left: 50%; bottom: 15px; transform: translateX(-50%); display: flex; gap: 8px; padding: 7px 10px; border-radius: 20px; background: #0006; }
+.hero-dots button { width: 10px; height: 10px; padding: 0; border: 1px solid #fff; border-radius: 50%; background: transparent; }
+.hero-dots button.active { background: #fff; }
+
+.catalog-section { max-width: 1140px; margin: 0 auto; padding: 70px 24px 100px; scroll-margin-top: 18px; }
+.catalog-intro { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.catalog-kicker { font-size: 11px; font-weight: 700; letter-spacing: .09em; color: var(--wine); }
+.catalog-intro h1 { margin: 8px 0 0; font-size: 37px; font-weight: 400; letter-spacing: -.04em; }
+.catalog-intro p { max-width: 335px; margin: 0 0 3px; font-size: 13px; line-height: 1.6; color: #747474; }
+.catalog-filters { display: flex; flex-wrap: wrap; gap: 9px 24px; padding: 25px 0 32px; }
+.catalog-filters button { padding: 6px 0 8px; border: 0; border-bottom: 2px solid transparent; background: none; color: #777; font-size: 13px; }
+.catalog-filters button:hover, .catalog-filters button.active { color: var(--wine); }
+.catalog-filters button.active { border-bottom-color: var(--wine); font-weight: 700; }
+.catalog-error { padding: 14px; background: #fff1f2; color: #a32239; font-size: 13px; }
+.guitar-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 42px 22px; }
+.guitar-item { min-width: 0; }
+.guitar-image { position: relative; height: 275px; background: #f7f7f7; overflow: hidden; }
+.guitar-image img { object-fit: contain; padding: 17px 12px; }
+.guitar-info { padding: 16px 2px 0; }
+.guitar-info > span { color: var(--wine); font-size: 11px; }
+.guitar-info h3 { margin: 7px 0 8px; font-size: 17px; line-height: 1.25; font-weight: 600; }
+.guitar-info p { margin: 0; color: #777; font-size: 12px; line-height: 1.45; }
+.guitar-info dl { margin: 16px 0 0; padding-top: 11px; border-top: 1px solid #e8e8e8; }
+.guitar-info dl div { display: flex; justify-content: space-between; gap: 8px; margin: 6px 0; font-size: 11px; line-height: 1.35; }
+.guitar-info dt { color: #999; }
+.guitar-info dd { margin: 0; color: #555; text-align: right; }
+.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 110px; padding: 25px max(calc((100vw - 1092px) / 2), 24px); border-top: 3px solid var(--wine); background: #f7f7f7; }
+.site-footer img { object-fit: contain; }
+.site-footer span { color: #777; font-size: 12px; }
+
+.chat-launcher { position: fixed; z-index: 20; right: 24px; bottom: 22px; display: grid; place-items: center; width: 60px; height: 60px; border: 0; border-radius: 50%; background: var(--wine); color: #fff; box-shadow: 0 4px 16px #0003; }
+.chat-launcher:hover { background: var(--wine-dark); }
+.chat-launcher span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.chat-panel { position: fixed; z-index: 19; right: 24px; bottom: 94px; display: flex; flex-direction: column; width: min(390px, calc(100vw - 32px)); height: min(480px, calc(100dvh - 112px)); overflow: hidden; border: 1px solid #d6d6d6; border-radius: 8px; background: #fff; box-shadow: 0 12px 40px #0003; }
+.chat-head { display: flex; align-items: center; justify-content: space-between; min-height: 66px; padding: 12px 17px; background: var(--wine); color: white; }
+.chat-head div { display: flex; flex-direction: column; gap: 4px; }
+.chat-head strong { font-size: 15px; }
+.chat-head small { font-size: 11px; opacity: .86; }
+.chat-head button { width: 28px; height: 28px; padding: 0; border: 0; background: none; color: white; font-size: 26px; line-height: 1; }
+.chat-messages { display: flex; flex: 1; flex-direction: column; gap: 12px; overflow-y: auto; padding: 18px 14px; background: #fcfcfc; }
+.chat-message { max-width: 91%; padding: 10px 12px; border-radius: 12px; font-size: 12px; line-height: 1.55; }
+.chat-message p { margin: 0; white-space: pre-wrap; }
+.chat-message.assistant { align-self: flex-start; border: 1px solid #ececec; border-bottom-left-radius: 3px; background: #fff; }
+.chat-message.user { align-self: flex-end; border-bottom-right-radius: 3px; background: var(--wine); color: white; }
+.chat-wait { margin: 0; color: #888; font-size: 12px; }
+.chat-error { margin: 0; padding: 10px; background: #fff0f1; color: #a32239; font-size: 12px; }
+.chat-products { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.guitar-item-small { display: flex; align-items: center; gap: 10px; padding-top: 8px; border-top: 1px solid #eee; }
+.guitar-item-small .guitar-image { width: 58px; height: 78px; flex: none; background: #f7f7f7; }
+.guitar-item-small .guitar-image img { padding: 3px; }
+.guitar-item-small .guitar-info { padding: 0; }
+.guitar-item-small .guitar-info > span { font-size: 9px; }
+.guitar-item-small .guitar-info h3 { margin: 3px 0; font-size: 12px; }
+.guitar-item-small .guitar-info p { font-size: 10px; }
+.camera-view { padding: 8px; background: #eee; }
+.camera-view video { display: block; width: 100%; max-height: 225px; background: #111; }
+.camera-view div { display: flex; gap: 8px; margin-top: 8px; }
+.camera-view button { padding: 7px 9px; border: 1px solid #ccc; background: white; font-size: 11px; }
+.camera-view button:first-child { border-color: var(--wine); background: var(--wine); color: white; }
+.chat-compose { padding: 8px 11px 11px; border-top: 1px solid #e7e7e7; background: white; }
+.chat-tools { display: flex; gap: 12px; padding-bottom: 7px; }
+.chat-tools button { padding: 3px 1px; border: 0; background: none; color: var(--wine); font-size: 11px; }
+.chat-tools button:disabled { opacity: .5; }
+.chat-input-row { display: flex; gap: 7px; }
+.chat-input-row input { flex: 1; min-width: 0; height: 39px; padding: 9px; border: 1px solid #d5d5d5; border-radius: 4px; outline-color: var(--wine); font-size: 12px; }
+.chat-input-row button { padding: 0 13px; border: 0; border-radius: 4px; background: var(--wine); color: white; font-size: 12px; }
+.chat-input-row button:disabled { opacity: .5; }
+
+@media (max-width: 1080px) { .guitar-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .site-logo { min-height: 76px; }
+  .site-logo img { width: 180px; height: 52px; }
+  .site-nav a, .site-nav button { min-width: 0; flex: 1; padding: 9px 5px; font-size: 13px; }
+  .hero-viewport { height: 205px; }
+  .hero-slide img { object-position: 52% center; }
+  .hero-arrow { width: 28px; height: 42px; font-size: 29px; }
+  .catalog-section { padding: 44px 16px 72px; }
+  .catalog-intro { display: block; }
+  .catalog-intro h1 { font-size: 31px; }
+  .catalog-intro p { margin-top: 12px; }
+  .catalog-filters { gap: 6px 15px; }
+  .catalog-filters button { font-size: 11px; }
+  .guitar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 12px; }
+  .guitar-image { height: 205px; }
+  .guitar-info h3 { font-size: 14px; }
+  .guitar-info p, .guitar-info dl { font-size: 10px; }
+  .guitar-info dl div { display: block; }
+  .guitar-info dd { text-align: left; }
+  .site-footer { display: block; }
+  .site-footer span { display: block; margin-top: 10px; }
+  .chat-launcher { right: 16px; bottom: 16px; }
+  .chat-panel { right: 12px; bottom: 86px; width: min(390px, calc(100vw - 24px)); height: min(480px, calc(100dvh - 102px)); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero-slide { transition: none; } }
